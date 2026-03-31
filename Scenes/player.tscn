@@ -1,15 +1,92 @@
 [gd_scene format=3 uid="uid://cppvk0i4o6tf5"]
 
 [ext_resource type="Script" uid="uid://bxf2vwmwdnrgc" path="res://Scripts/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://b7k5bgd1x5hub" path="res://Art/player_placeholder.svg" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://cc4w36lyf6kho" path="res://Art/Player/space_ship-Sheet.png" id="2_cvnsp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
+
+[sub_resource type="Animation" id="Animation_cvnsp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_6t5aa"]
+resource_name = "default"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_vgqql"]
+resource_name = "move_left"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "move_right"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vgqql"]
+_data = {
+&"RESET": SubResource("Animation_cvnsp"),
+&"default": SubResource("Animation_6t5aa"),
+&"move_left": SubResource("Animation_vgqql"),
+&"move_right": SubResource("Animation_fkybt")
+}
 
 [node name="Player" type="CharacterBody2D" unique_id=2140760760]
 script = ExtResource("1_cvnsp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=679105324]
-texture = ExtResource("1_v0iea")
+texture = ExtResource("2_cvnsp")
+hframes = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1743100071]
 shape = SubResource("CircleShape2D_cvnsp")
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=492237905]
+libraries/ = SubResource("AnimationLibrary_vgqql")
