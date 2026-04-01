@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		if shots_fired == false:
 			var blt = BULLET.instantiate()
 			blt.global_position = marker_top.global_position
-			get_tree().root.add_child(blt)
+			get_tree().current_scene.add_child(blt)
 			shots_fired = true
 	
 	#apply delay between shots

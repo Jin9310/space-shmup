@@ -2,13 +2,12 @@
 
 [ext_resource type="Script" uid="uid://wsvow3d8dh7a" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cppvk0i4o6tf5" path="res://Scenes/player.tscn" id="2_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://bsp4k1xlagkox" path="res://Scenes/enemy.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://dtr8tke5cg8mc" path="res://Scenes/spawner.tscn" id="3_8gbba"]
 
 [node name="Main" type="Node2D" unique_id=1505985514]
 script = ExtResource("1_jjgbg")
 
 [node name="Player" parent="." unique_id=2140760760 instance=ExtResource("2_bo1nx")]
-position = Vector2(145, 78)
+position = Vector2(163, 158)
 
-[node name="Enemy" parent="." unique_id=1112940050 instance=ExtResource("3_8gbba")]
-position = Vector2(143, 10)
+[node name="spawner" parent="." unique_id=105432207 instance=ExtResource("3_8gbba")]
