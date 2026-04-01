@@ -90,3 +90,6 @@ shape = SubResource("CircleShape2D_cvnsp")
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=492237905]
 libraries/ = SubResource("AnimationLibrary_vgqql")
+
+[node name="marker_top" type="Marker2D" parent="." unique_id=828046650]
+position = Vector2(0, -10)

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://xslch2bqn64h"]
+
+[ext_resource type="Script" uid="uid://blqrvswj4urmr" path="res://Scripts/bullet.gd" id="1_oduel"]
+[ext_resource type="Texture2D" uid="uid://dpywfiq6b1xqq" path="res://Art/laser_placeholder.svg" id="1_xjght"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oduel"]
+
+[node name="bullet" type="Area2D" unique_id=1150391112]
+script = ExtResource("1_oduel")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1713058316]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_xjght")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=856971414]
+shape = SubResource("CircleShape2D_oduel")
+
+[node name="Timer" type="Timer" parent="." unique_id=536163135]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
