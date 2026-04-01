@@ -8,6 +8,13 @@ const BULLET = preload("res://Scenes/bullet.tscn")
 @onready var anim: AnimationPlayer = $anim
 @onready var marker_top = $marker_top
 
+@export var default_cd: float = .15
+var fire_cooldown: float
+var shots_fired: bool = false
+
+func _ready() -> void:
+	fire_cooldown = default_cd
+
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "forward", "backward")
 	velocity = input_direction * speed
@@ -35,7 +42,19 @@ func _physics_process(delta: float) -> void:
 	get_input()
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("shoot"):
-		var blt = BULLET.instantiate()
-		blt.global_position = marker_top.global_position
-		get_tree().root.add_child(blt)
+	if Input.is_action_pressed("shoot"):
+		if shots_fired == false:
+			var blt = BULLET.instantiate()
+			blt.global_position = marker_top.global_position
+			get_tree().root.add_child(blt)
+			shots_fired = true
+	
+	#apply delay between shots
+	shot_delay(default_cd ,delta)
+
+func shot_delay(delay:float, delta:float):
+	if shots_fired == true:
+		fire_cooldown -= delta
+		if fire_cooldown <= 0.0:
+			shots_fired = false
+			fire_cooldown = delay

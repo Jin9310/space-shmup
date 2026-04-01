@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bsp4k1xlagkox"]
+
+[ext_resource type="Script" uid="uid://cp8w72t3g02f4" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://cbl28cmxsny1u" path="res://Art/enemy_placeholder.svg" id="1_hghv2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1f0kj"]
+radius = 8.0
+
+[node name="Enemy" type="Area2D" unique_id=1112940050]
+script = ExtResource("1_1f0kj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=115374457]
+self_modulate = Color(0.77254903, 0.09019608, 0.19215687, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_hghv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1529967765]
+shape = SubResource("CircleShape2D_1f0kj")
