@@ -10,12 +10,16 @@ radius = 8.0
 script = ExtResource("1_1f0kj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=115374457]
-self_modulate = Color(0.77254903, 0.09019608, 0.19215687, 1)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_hghv2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1529967765]
 shape = SubResource("CircleShape2D_1f0kj")
 
+[node name="Change_direction" type="Timer" parent="." unique_id=662118839]
+wait_time = 2.0
+autostart = true
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Change_direction" to="." method="_on_change_direction_timeout"]

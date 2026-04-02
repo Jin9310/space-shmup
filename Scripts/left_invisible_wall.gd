@@ -1,0 +1,1 @@
+class_name LeftInvisibleWall extends Area2D

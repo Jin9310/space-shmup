@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://3qq7iclykvro"]
+
+[ext_resource type="Script" uid="uid://bd54o0fvbh2y2" path="res://Scripts/left_invisible_wall.gd" id="1_g87hm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tffob"]
+size = Vector2(20, 197)
+
+[node name="LeftInvisibleWall" type="Area2D" unique_id=1020971128]
+script = ExtResource("1_g87hm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=233381375]
+position = Vector2(0, 88.5)
+shape = SubResource("RectangleShape2D_tffob")

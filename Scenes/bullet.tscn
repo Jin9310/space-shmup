@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://xslch2bqn64h"]
 
 [ext_resource type="Script" uid="uid://blqrvswj4urmr" path="res://Scripts/bullet.gd" id="1_oduel"]
-[ext_resource type="Texture2D" uid="uid://dpywfiq6b1xqq" path="res://Art/laser_placeholder.svg" id="1_xjght"]
+[ext_resource type="Texture2D" uid="uid://cew72o4820pl1" path="res://Art/Player/laser.png" id="2_oduel"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_oduel"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycag2"]
+size = Vector2(4, 5)
 
 [node name="bullet" type="Area2D" unique_id=1150391112]
 script = ExtResource("1_oduel")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1713058316]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_xjght")
+texture = ExtResource("2_oduel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=856971414]
-shape = SubResource("CircleShape2D_oduel")
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_ycag2")
 
 [node name="Timer" type="Timer" parent="." unique_id=536163135]
 wait_time = 2.0

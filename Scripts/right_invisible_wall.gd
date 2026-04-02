@@ -1,0 +1,1 @@
+class_name RightInvisibleWall extends Area2D
