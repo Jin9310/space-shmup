@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 const BULLET = preload("res://Scenes/bullet.tscn")
 
@@ -13,7 +13,8 @@ var fire_cooldown: float
 var shots_fired: bool = false
 
 func _ready() -> void:
-	fire_cooldown = default_cd
+	#set all stats back to default
+	Gamemanager.reset_stats()
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "forward", "backward")

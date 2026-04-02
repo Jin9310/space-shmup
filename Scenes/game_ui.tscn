@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dt7s04aju26ld"]
+
+[ext_resource type="Script" uid="uid://2pw3xb5x4voe" path="res://Scripts/game_ui.gd" id="1_gek4i"]
+
+[node name="GameUI" type="Control" unique_id=56492309]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gek4i")
+
+[node name="Player_hp" type="Label" parent="." unique_id=108359379]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

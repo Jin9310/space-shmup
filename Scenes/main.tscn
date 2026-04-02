@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://wsvow3d8dh7a" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cppvk0i4o6tf5" path="res://Scenes/player.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://dtr8tke5cg8mc" path="res://Scenes/spawner.tscn" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://bpp53wul361rp" path="res://Scripts/off_screen.gd" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://dt7s04aju26ld" path="res://Scenes/game_ui.tscn" id="5_kry3j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
+size = Vector2(306, 34)
 
 [node name="Main" type="Node2D" unique_id=1505985514]
 script = ExtResource("1_jjgbg")
@@ -11,3 +16,13 @@ script = ExtResource("1_jjgbg")
 position = Vector2(163, 158)
 
 [node name="spawner" parent="." unique_id=105432207 instance=ExtResource("3_8gbba")]
+
+[node name="off_screen" type="Area2D" parent="." unique_id=277510686]
+position = Vector2(-2, 102)
+script = ExtResource("4_jjvhh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="off_screen" unique_id=1749477687]
+position = Vector2(163, 113)
+shape = SubResource("RectangleShape2D_8gbba")
+
+[node name="GameUI" parent="." unique_id=56492309 instance=ExtResource("5_kry3j")]

@@ -8,7 +8,6 @@ script = ExtResource("1_2bop2")
 [node name="Marker2D" type="Marker2D" parent="." unique_id=951648936]
 
 [node name="Timer" type="Timer" parent="." unique_id=856681954]
-wait_time = 2.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
