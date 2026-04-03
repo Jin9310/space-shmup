@@ -37,12 +37,13 @@ func _process(delta: float) -> void:
 func death():
 	#changing the scale is now a placeholder for future death animation
 	sprite_2d.scale = Vector2(.2, .2)
+	Gamemanager.get_score(10)
 	await get_tree().create_timer(2).timeout
 	queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
 	# collisions with shots
-	if area is not RightInvisibleWall and area is not LeftInvisibleWall:
+	if area is not RightInvisibleWall and area is not LeftInvisibleWall and area is not BasicEnemy:
 		hp -= 1
 		if hp <= 0:
 			#disable colliders when dead
@@ -56,13 +57,13 @@ func _on_area_entered(area: Area2D) -> void:
 	# collision with "Right and left wall"
 	# just making the boundaries
 	if area is RightInvisibleWall:
-		print("right wall collision")
+		#print("right wall collision")
 		enemy_go_to = 2
 		# visual helper to see if it works 
 		sprite_2d.modulate = Color.GREEN
 	
 	if area is LeftInvisibleWall:
-		print("left wall collision")
+		#print("left wall collision")
 		enemy_go_to = 3
 		# visual helper to see if it works 
 		sprite_2d.modulate = Color.YELLOW
