@@ -1,6 +1,7 @@
 extends Node
 
 signal hp_changed(new_hp)
+signal score_changed(new_score)
 
 var player_hp: int
 var base_player_hp: int = 5
@@ -18,5 +19,6 @@ func player_got_hit(amount: int):
 	if player_hp <= 0:
 		dead = true
 
-func get_score(points):
-	score += points# * multiplier
+func get_score(points: int, multiplier: int):
+	score += points * multiplier
+	score_changed.emit(score)

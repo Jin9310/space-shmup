@@ -48,8 +48,10 @@ func get_input():
 	#print(input_direction)
 
 func _physics_process(delta: float) -> void:
-	get_input()
-	move_and_slide()
+	if !Gamemanager.dead:
+		get_input()
+		move_and_slide()
+	
 	select_weapon()
 	
 	if Input.is_action_pressed("shoot"):

@@ -7,6 +7,9 @@ class_name BasicEnemy extends Area2D
 @export var speed: float = 25.0
 var hp: int = 3
 
+var enemy_score: int = 10
+var enemy_multiplier: int = 1
+
 #MOVEMENT
 var dir_down = Vector2.DOWN
 var dir_up = Vector2.UP
@@ -37,7 +40,7 @@ func _process(delta: float) -> void:
 func death():
 	#changing the scale is now a placeholder for future death animation
 	sprite_2d.scale = Vector2(.2, .2)
-	Gamemanager.get_score(10)
+	Gamemanager.get_score(enemy_score, enemy_multiplier)
 	await get_tree().create_timer(2).timeout
 	queue_free()
 
